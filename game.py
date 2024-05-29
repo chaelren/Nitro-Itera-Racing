@@ -218,46 +218,92 @@ layar_awal = True
 
 while layar_awal:
     for event in pygame.event.get():
-        #Memainkan suara pada tampilan awal
         if suara_tampilan_awal_berjalan:
             suara_tampilan_awal.play()
         if event.type == QUIT:
             layar_awal = False
             berjalan = False
-             # Hentikan suara saat menutup permainan
             suara_tampilan_awal_berjalan = False
             suara_tampilan_awal.stop()
             pygame.quit()
         elif event.type == MOUSEBUTTONDOWN:
-            # Check if play button is clicked
             if play_button_rect.collidepoint(event.pos):
                 layar_awal = False
-                # Menghentikan suara tampilan awal saat game dimulai
                 suara_tampilan_awal_berjalan = False
                 suara_tampilan_awal.stop()
-                #Start the game music and sound effects
-                mobil_pemain._sound_engine.play(-1)  # Start the car engine sound
-                suara_permainan_berjalan = True  # Set the game sound flag to True
-            # Check if exit button is clicked
+                mobil_pemain._sound_engine.play(-1)
             elif exit_button_rect.collidepoint(event.pos):
                 layar_awal = False
-                berjalan = False  # Menghentikan loop utama
+                berjalan = False
                 pygame.quit()
+                exit()
+            elif about_button_rect.collidepoint(event.pos):
+                running = True
+                while running:
+                    for event in pygame.event.get():
+                        if event.type == QUIT:
+                            running = False
+                            layar_awal = False
+                            berjalan = False
+                            pygame.quit()
+                            exit()
+                        elif event.type == KEYDOWN and event.key == K_ESCAPE:
+                            running = False
+
+                    layar.fill(biru)
+                    font = pygame.font.Font('font/pixel.ttf', 10)
+                    deskripsi = [
+                        "Nitro Itera Racing",
+                        "-------------------",
+                        "Nitro Itera Racing adalah permainan yang memacu,",
+                        "adrenalin menguji kecepatan, refleks, dan ",
+                        "keterampilan pengendaraan Anda dalam menghadapi ",
+                        "lalu lintas padat di jalan raya. Dalam petualangan ini, ",
+                        "Anda akan memasuki jalur yang sibuk, mengendalikan ",
+                        "mobil Anda dengan kecepatan tinggi sambil berusaha ",
+                        "menghindari tabrakan dengan kendaraan lain dan ",
+                        "berbagai rintangan-rintangan yang menghalangi ",
+                        "jalan Anda. Semakin lama dan jauh Anda bertahan ",
+                        "untuk tidak tertabrak dengan kendaraan lain dan ",
+                        "rintangannya, maka semakin banyak poin yang ",
+                        "terkumpul, itulah kunci dalam meningkatkan skor Anda.",
+                        "",
+                        "Kontrol:",
+                        "- Panah Kiri/Kanan: Pindah Jalur",
+                        "- Panah Atas/Bawah: Maju/Mundur",
+                        "- P/Click Icon Pause: Pause ",
+                        "- Click Icon Mute: Mute/Unmute ",
+                        "",
+                        "Tekan ESC untuk kembali."
+                    ]
+
+                    y = 100
+                    for line in deskripsi:
+                        teks = font.render(line, True, hitam)
+                        rect_teks = teks.get_rect(center=(lebar // 2, y))
+                        layar.blit(teks, rect_teks)
+                        y += 20
+
+                    pygame.display.update()
 
     # Load gambar latar belakang
     gambar_latar_belakang = pygame.image.load('images/Awal game/baground awal.png')
-
-    # Gambar latar belakang
-    layar.blit(gambar_latar_belakang, (0, 0))  # Ubah (0, 0) sesuai dengan posisi yang Anda inginkan
+    layar.blit(gambar_latar_belakang, (0, 0))
 
     # Load play button image
-    play_button_image = pygame.image.load('images/Awal game/play1.png')
+    play_button_image = pygame.image.load('images/Awal game/play.png')
     play_button_rect = play_button_image.get_rect()
     play_button_rect.center = (lebar // 2, tinggi // 2 - 10)
     layar.blit(play_button_image, play_button_rect)
 
+    # Load about button image
+    about_button_image = pygame.image.load('images/Awal game/about.png')
+    about_button_rect = about_button_image.get_rect()
+    about_button_rect.topright = (490, 10)
+    layar.blit(about_button_image, about_button_rect)
+
     # Load exit button image
-    exit_button_image = pygame.image.load('images/Awal game/exit1.png')
+    exit_button_image = pygame.image.load('images/Awal game/exit.png')
     exit_button_rect = exit_button_image.get_rect()
     exit_button_rect.center = (lebar // 2, tinggi // 2 + 100)
     layar.blit(exit_button_image, exit_button_rect)
@@ -347,7 +393,7 @@ while berjalan:
                     mobil_pemain._sound_engine.set_volume(0)
                     suara_permainan_berjalan = False
 
-    # Gambar rumput
+    # Gambar latar belakang
     layar.fill(hijau)
     
     # Gambar pohon
@@ -427,9 +473,14 @@ while berjalan:
                 # Tambahkan skor
                 skor += 1
                 
-                # Tingkatkan kecepatan permainan setelah melewati 5 kendaraan
-                if skor > 0 and skor % 5 == 0:
+                # Tingkatkan kecepatan permainan setelah melewati 10 kendaraan
+                if skor > 0 and skor % 10 == 0:
                     kecepatan += 1
+
+                # Mengubah warna latar belakang setiap kali mencapai kelipatan skor 20.
+                if skor > 0 and skor % 20 == 0:
+                    # Ganti warna latar belakang sesuai keinginan Anda
+                    hijau = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     
     # Gambar kendaraan
     grup_kendaraan.draw(layar)
