@@ -199,14 +199,14 @@ for i in range(num_trees):
     trees_right.append([x_kanan, y_kanan, speed_kanan])
 
 # Load gambar pause
-gambar_pause = pygame.image.load('images/button/pause.png')
+gambar_pause = pygame.image.load('images/button dalam game/pause.png')
 lebar_gambar_pause = 50
 tinggi_gambar_pause = 690
 posisi_gambar_pause = (lebar - lebar_gambar_pause - 40, tinggi - tinggi_gambar_pause - 10)
 
 # Load gambar tombol mute
-gambar_mute_on = pygame.image.load('images/button/suara on.png')
-gambar_mute_off = pygame.image.load('images/button/suara off.png')
+gambar_mute_on = pygame.image.load('images/button dalam game/suara on.png')
+gambar_mute_off = pygame.image.load('images/button dalam game/suara off.png')
 lebar_gambar_mute = 30
 tinggi_gambar_mute = 690
 posisi_gambar_mute = (lebar - lebar_gambar_mute - 15, tinggi - tinggi_gambar_mute - 10)
@@ -291,19 +291,19 @@ while layar_awal:
     layar.blit(gambar_latar_belakang, (0, 0))
 
     # Load play button image
-    play_button_image = pygame.image.load('images/Awal game/play.png')
+    play_button_image = pygame.image.load('images/Awal game/button awal game/play.png')
     play_button_rect = play_button_image.get_rect()
     play_button_rect.center = (lebar // 2, tinggi // 2 - 10)
     layar.blit(play_button_image, play_button_rect)
 
     # Load about button image
-    about_button_image = pygame.image.load('images/Awal game/about.png')
+    about_button_image = pygame.image.load('images/Awal game/button awal game/about.png')
     about_button_rect = about_button_image.get_rect()
     about_button_rect.topright = (490, 10)
     layar.blit(about_button_image, about_button_rect)
 
     # Load exit button image
-    exit_button_image = pygame.image.load('images/Awal game/exit.png')
+    exit_button_image = pygame.image.load('images/Awal game/button awal game/exit.png')
     exit_button_rect = exit_button_image.get_rect()
     exit_button_rect.center = (lebar // 2, tinggi // 2 + 100)
     layar.blit(exit_button_image, exit_button_rect)
