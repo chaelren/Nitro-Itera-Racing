@@ -46,7 +46,7 @@ Nitro Itera Racing adalah permainan yang memacu adrenalin, menguji kecepatan, re
 ## DIAGRAM UNIFIED MODELING LANGUAGE
 
 1. Spesifikasi Game - Use Case Diagram_ Pengguna
-![1](https://github.com/chaelren/Nitro-Itera-Racing/assets/115081820/73c082ab-35e1-4b9f-92c8-b638328a77ec)
+![1](https://github.com/chaelren/Nitro-Itera-Racing/assets/115081820/7ac2293a-51fa-4949-93d4-720f0333bae8)
 2. Spesifikasi Game - Use Case Diagram_ Pengembang
 ![2](https://github.com/chaelren/Nitro-Itera-Racing/assets/115081820/8cf7c1df-4ada-4b0d-88dd-a5b43bcaeab7)
 3. Spesifikasi Game - CLASS DIAGRAM
