@@ -1,4 +1,4 @@
-# Nitro-Itera-Racing
+# ![icon](https://github.com/chaelren/Nitro-Itera-Racing/assets/115081820/2f141d70-7209-4e7e-871b-54650d466f10)Nitro-Itera-Racing
 
 ## Tugas-Besar-PBO
 
