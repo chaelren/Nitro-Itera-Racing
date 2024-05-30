@@ -45,5 +45,7 @@ Nitro Itera Racing adalah permainan yang memacu adrenalin, menguji kecepatan, re
 
 ## DIAGRAM UNIFIED MODELING LANGUAGE
 
+![img 1](UML Diagram/1.jpg)
+
 
 
